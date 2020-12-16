@@ -62,3 +62,6 @@ alert("offer applied: " +
 
 ;
 
+function isUpperCase(str){
+    return str.toUpperCase === str;
+}

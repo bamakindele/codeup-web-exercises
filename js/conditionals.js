@@ -20,6 +20,25 @@
  * console.logging the function's return value
  */
 
+function analyzeColor(color){
+    if  (color === "blue"){
+        return "blue is the color of the sky"
+    }
+        else if(color === "red") {
+            return "Strawberries are red"
+    }
+        else if (color === "cyan"){
+            return "I don't know anything about cyan"
+    }
+        else {
+            return "I dont know what " + color + " is."
+    }
+}
+
+console.log(analyzeColor("blue"));
+console.log(analyzeColor("red"));
+console.log(analyzeColor("cyan"));
+
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -32,11 +51,27 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
+  console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+var color = randomColor;
+switch(color){
+    case "blue":
+        console.log("Blue is the color of the sky");
+    break;
+    case "red":
+        console.log("Strawberries are red");
+    break;
+    case "cyan":
+        console.log("I don't know anything about cyan");
+    break;
+    default:
+        console.log("I dont know what " + color + " is.");
+
+}
 
 /**
  * TODO:
@@ -44,6 +79,9 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+var userColor = prompt("Enter your color ");
+alert(analyzeColor(userColor));
 
 /* ########################################################################## */
 
@@ -67,6 +105,26 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
+function calculateTotal(luckyNum, totalAmount){
+    switch (luckyNum) {
+        case 1:
+            return (totalAmount - (totalAmount * 0.1));
+        case 2:
+            return (totalAmount - (totalAmount * 0.25));
+        case 3:
+            return (totalAmount - (totalAmount * 0.35));
+        case 4:
+            return (totalAmount - (totalAmount * 0.50));
+        case 5:
+            return 0;
+        default:
+            return(totalAmount)
+    }
+}
+console.log (calculateTotal(0, 100)); // returns 100
+console.log (calculateTotal(4, 100)); // returns 50
+console.log (calculateTotal(5, 100)); // returns 0
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -74,22 +132,46 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+//Generate a random number between 0 and 6
+var luckyNumber = Math.floor(Math.random() * 6);
+var totalBill = prompt("Enter your Total Bill: ");
+alert("What's your lucky number?" + luckyNumber);
+alert("What's your price before the discount?" + totalBill);
+var totalAfterDiscount = calculateTotal(luckyNumber, totalBill);
+alert("This is your price after discount: " + totalAfterDiscount);
+
+
+
+
 
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
  * would like to enter a number. If they click 'Ok', prompt the user for a
  * number, then use 3 separate alerts to tell the user:
- *
  * - whether the number is even or odd
  * - what the number plus 100 is
  * - if the number is negative or positive
- *
+
  * if what the user enters is not a number, use an alert to tell them that, and
  * do *not* display any of the above information.
  *
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+var inputNumber = confirm("Would you like to enter a number?");
+if (inputNumber) {
+    var inputNumber = prompt("Enter a number: ");
+    if (isNaN(inputNumber)) {
+        alert("What you entered is not a number!")
+    } else {
+        (inputNumber % 2 === 0) ? alert("you entered an even number") : alert("you entered an odd number");
+        (inputNumber >= 0) ? alert("You enterd a positive number") : alert("You entered a negative number");
+        alert("The number you entered plus 100 is equal " + inputNumber + 100);
+    }
+}else
+    {
+        alert("you did not choose a number");
+    }
+
