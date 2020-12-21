@@ -160,6 +160,7 @@ alert("This is your price after discount: " + totalAfterDiscount);
  * HINT: The way we prompt for a value could be improved
  */
 
+
 var inputNumber = confirm("Would you like to enter a number?");
 if (inputNumber) {
     var inputNumber = prompt("Enter a number: ");
@@ -168,7 +169,8 @@ if (inputNumber) {
     } else {
         (inputNumber % 2 === 0) ? alert("you entered an even number") : alert("you entered an odd number");
         (inputNumber >= 0) ? alert("You enterd a positive number") : alert("You entered a negative number");
-        alert("The number you entered plus 100 is equal " + inputNumber + 100);
+//        alert("The number you entered plus 100 is equal " + (inputNumber + 100));
+        alert("The number you entered plus 100 is equal " + (parseInt(inputNumber) + 100));
     }
 }else
     {
